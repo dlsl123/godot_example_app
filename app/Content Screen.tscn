@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Content Screen.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ContentScreen" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 240.0
+margin_bottom = 400.0
+
+[node name="TitlebarContainer" type="PanelContainer" parent="VBoxContainer"]
+margin_right = 240.0
+margin_bottom = 28.0
+
+[node name="Title" type="Label" parent="VBoxContainer/TitlebarContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 233.0
+margin_bottom = 21.0
+text = "Content Screen"
+align = 1
+
+[node name="ContentContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 32.0
+margin_right = 240.0
+margin_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 5
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="ContentVBoxContainer" type="VBoxContainer" parent="VBoxContainer/ContentContainer"]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 230.0
+margin_bottom = 358.0
+custom_constants/separation = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ContentContainer/ContentVBoxContainer"]
+margin_right = 220.0
+margin_bottom = 323.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ContentContainer/ContentVBoxContainer/ScrollContainer"]
+margin_right = 220.0
+margin_bottom = 323.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 5
+
+[node name="ContactContainer" type="VBoxContainer" parent="VBoxContainer/ContentContainer/ContentVBoxContainer/ScrollContainer/MarginContainer"]
+margin_right = 215.0
+margin_bottom = 323.0
+size_flags_horizontal = 3
+
+[node name="ButtonGridContainer" type="GridContainer" parent="VBoxContainer/ContentContainer/ContentVBoxContainer"]
+margin_top = 333.0
+margin_right = 220.0
+margin_bottom = 353.0
+custom_constants/hseparation = 10
+columns = 2
+
+[node name="LogoutButton" type="Button" parent="VBoxContainer/ContentContainer/ContentVBoxContainer/ButtonGridContainer"]
+margin_right = 105.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Logout"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/ContentContainer/ContentVBoxContainer/ButtonGridContainer"]
+margin_left = 115.0
+margin_right = 220.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Quit"
+[connection signal="pressed" from="VBoxContainer/ContentContainer/ContentVBoxContainer/ButtonGridContainer/LogoutButton" to="." method="_on_LogoutButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ContentContainer/ContentVBoxContainer/ButtonGridContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
