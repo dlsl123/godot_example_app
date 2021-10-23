@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ContactDelegate.gd" type="Script" id=1]
+
+[node name="ContactDelegate" type="PanelContainer"]
+margin_right = 14.0
+margin_bottom = 14.0
+mouse_filter = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 97.0
+margin_bottom = 39.0
+mouse_filter = 1
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+margin_right = 90.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_constants/hseparation = 10
+columns = 2
+
+[node name="NameLabel" type="Label" parent="CenterContainer/GridContainer"]
+margin_right = 60.0
+margin_bottom = 14.0
+text = "Name: "
+
+[node name="NameValue" type="Label" parent="CenterContainer/GridContainer"]
+margin_left = 70.0
+margin_right = 90.0
+margin_bottom = 14.0
+text = "n/a"
+
+[node name="SurnameLabel" type="Label" parent="CenterContainer/GridContainer"]
+margin_top = 18.0
+margin_right = 60.0
+margin_bottom = 32.0
+text = "Surname:"
+
+[node name="SurnameValue" type="Label" parent="CenterContainer/GridContainer"]
+margin_left = 70.0
+margin_top = 18.0
+margin_right = 90.0
+margin_bottom = 32.0
+text = "n/a"
